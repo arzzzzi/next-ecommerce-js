@@ -14,10 +14,10 @@ const Layout = ({ title, children }) => {
 
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
-  const [cartitemsCount, setCartitemsCount] = useState(0);
+  const [cartItemsCount, setCartItemsCount] = useState(0);
   useEffect(() => {
-    setCartitemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
-  }, []);
+    setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
+  }, [cart.cartItems]);
 
   const logoutHandler = () => {
     Cookies.remove('cart');
@@ -39,12 +39,12 @@ const Layout = ({ title, children }) => {
               <a className="text-lg font-bold">HalfBillzon</a>
             </Link>
             <div>
-              <Link legacyBehavior href={'/cart'}>
+              <Link legacyBehavior href="/cart">
                 <a className="p-2">
-                  Cart{' '}
-                  {cartitemsCount > 0 && (
-                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white ">
-                      {cartitemsCount}
+                  Cart
+                  {cartItemsCount > 0 && (
+                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                      {cartItemsCount}
                     </span>
                   )}
                 </a>

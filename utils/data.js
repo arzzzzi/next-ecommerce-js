@@ -63,8 +63,8 @@ export const data = {
             description: 'Comforable sweatpants'
         },
         {
-            name: 'Fit shirt',
-            slug: 'fit-shirt',
+            name: 'Oversize shirt',
+            slug: 'oversize-shirt',
             category: 'Pants',
             image: '/images/pants2.jpg',
             price: 95,
